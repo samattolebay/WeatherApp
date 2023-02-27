@@ -27,6 +27,7 @@ fun WeatherApp(navController: NavHostController, cityWeather: State<CityWeather?
         Screen.Search,
     )
     Scaffold(
+        backgroundColor = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
             BottomNavigation(
