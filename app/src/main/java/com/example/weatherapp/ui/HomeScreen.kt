@@ -1,6 +1,7 @@
 package com.example.weatherapp.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -11,18 +12,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.weatherapp.data.network.model.*
-import com.example.weatherapp.ui.theme.ExtraBigTextStyle
-import com.example.weatherapp.ui.theme.ExtraMediumTextStyle
-import com.example.weatherapp.ui.theme.SmallTextStyle
 import com.example.weatherapp.R
-import com.example.weatherapp.ui.theme.DefaultTextStyle
+import com.example.weatherapp.ui.theme.*
 import com.example.weatherapp.utils.getFakeCityWeather
 
 @Composable
-fun HomeScreen(cityWeather: CityWeather?) {
+fun HomeScreen(cityWeather: CityWeather?, fillSize: Boolean = true) {
     if (cityWeather == null) return
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = (if (fillSize) Modifier.fillMaxSize() else Modifier.wrapContentHeight())
+            .background(color = MainBackgroundColor),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(
@@ -42,7 +41,11 @@ fun HomeScreen(cityWeather: CityWeather?) {
             text = stringResource(id = R.string.temperature, cityWeather.main.temp.toInt()),
             style = ExtraBigTextStyle
         )
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(
+            modifier = if (fillSize) Modifier.weight(1f) else Modifier
+                .fillMaxWidth()
+                .height(16.dp)
+        )
         Row(modifier = Modifier.fillMaxWidth()) {
             Column(
                 modifier = Modifier.weight(1f),
@@ -92,9 +95,11 @@ fun HomeScreen(cityWeather: CityWeather?) {
                 Text(text = stringResource(id = R.string.wind_text), style = DefaultTextStyle)
             }
         }
-        Spacer(modifier = Modifier
-            .fillMaxWidth()
-            .height(16.dp))
+        Spacer(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(16.dp)
+        )
     }
 
 }

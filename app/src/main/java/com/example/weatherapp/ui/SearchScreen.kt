@@ -26,15 +26,23 @@ import com.example.weatherapp.data.network.model.CityWeather
 
 @Composable
 fun SearchScreen() {
+    val cities = remember {
+        mutableStateListOf<CityWeather>()
+    }
+    val selectedCity = remember {
+        mutableStateOf<CityWeather?>(null)
+    }
+    if (selectedCity.value != null) {
+        CityWeatherDialog(selectedCity.value) {
+            selectedCity.value = null
+        }
+    }
     Column(
         modifier = Modifier.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         val text = remember {
             mutableStateOf(TextFieldValue(""))
-        }
-        val cities = remember {
-            mutableStateListOf<CityWeather>()
         }
         TextField(
             modifier = Modifier.fillMaxWidth(),
@@ -63,7 +71,9 @@ fun SearchScreen() {
         )
         LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             items(cities) {
-                CityWeatherCard(it)
+                CityWeatherCard(it) {
+                    selectedCity.value = it
+                }
             }
         }
     }

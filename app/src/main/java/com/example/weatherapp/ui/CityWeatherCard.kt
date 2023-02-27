@@ -2,6 +2,7 @@ package com.example.weatherapp.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -17,10 +18,11 @@ import com.example.weatherapp.ui.theme.*
 import com.example.weatherapp.utils.getFakeCityWeather
 
 @Composable
-fun CityWeatherCard(cityWeather: CityWeather) {
+fun CityWeatherCard(cityWeather: CityWeather, onClick: () -> Unit) {
     Row(
         modifier = Modifier
-            .background(color = CardBackgroundColor)
+            .clickable(onClick = onClick)
+            .background(color = MainBackgroundColor)
             .border(1.dp, color = CardBorderColor)
             .fillMaxWidth()
             .padding(horizontal = 4.dp, vertical = 8.dp),
@@ -54,5 +56,5 @@ fun CityWeatherCard(cityWeather: CityWeather) {
 @Preview
 @Composable
 fun PreviewCityWeatherCard() {
-    CityWeatherCard(cityWeather = getFakeCityWeather())
+    CityWeatherCard(cityWeather = getFakeCityWeather()) {}
 }
