@@ -1,8 +1,10 @@
-package com.example.weatherapp.ui
+package com.example.weatherapp.ui.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -11,13 +13,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.weatherapp.data.network.model.*
 import com.example.weatherapp.R
+import com.example.weatherapp.ui.model.CityWeatherViewData
 import com.example.weatherapp.ui.theme.*
-import com.example.weatherapp.utils.getFakeCityWeather
+import com.example.weatherapp.utils.getFakeCityWeatherViewData
 
 @Composable
-fun HomeScreen(cityWeather: CityWeather?, fillSize: Boolean = true) {
+fun HomeScreen(cityWeather: CityWeatherViewData?, fillSize: Boolean = true) {
     if (cityWeather == null) return
     Column(
         modifier = (if (fillSize) Modifier.fillMaxSize() else Modifier.wrapContentHeight())
@@ -95,6 +97,12 @@ fun HomeScreen(cityWeather: CityWeather?, fillSize: Boolean = true) {
                 Text(text = stringResource(id = R.string.wind_text), style = DefaultTextStyle)
             }
         }
+        Text(text = stringResource(id = R.string.forecast), style = MediumTextStyle)
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+            items(cityWeather.forecast) {
+                MiniDayForecast(it)
+            }
+        }
         Spacer(
             modifier = Modifier
                 .fillMaxWidth()
@@ -107,5 +115,5 @@ fun HomeScreen(cityWeather: CityWeather?, fillSize: Boolean = true) {
 @Preview
 @Composable
 fun PreviewHomeScreen() {
-    HomeScreen(getFakeCityWeather())
+    HomeScreen(getFakeCityWeatherViewData())
 }

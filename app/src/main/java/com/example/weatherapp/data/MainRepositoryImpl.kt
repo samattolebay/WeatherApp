@@ -1,7 +1,9 @@
-package com.example.weatherapp.data.network
+package com.example.weatherapp.data
 
 import android.util.Log
+import com.example.weatherapp.data.network.WeatherApiService
 import com.example.weatherapp.data.network.model.CityWeather
+import com.example.weatherapp.data.network.model.CityWeatherForecast
 import com.example.weatherapp.utils.ResultOf
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
@@ -18,6 +20,13 @@ class MainRepositoryImpl(
 
     override suspend fun fetchCityWeatherByPoint(lat: String, lon: String): ResultOf<CityWeather> {
         return getResult { networkService.fetchCityWeatherByPoint(lat, lon) }
+    }
+
+    override suspend fun fetchCityWeatherForecastByPoint(
+        lat: String,
+        lon: String
+    ): ResultOf<CityWeatherForecast> {
+        return getResult { networkService.fetchCityWeatherForecastByPoint(lat, lon) }
     }
 
     private suspend fun <T> getResult(request: suspend () -> Response<T>): ResultOf<T> {

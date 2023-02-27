@@ -1,4 +1,4 @@
-package com.example.weatherapp.ui
+package com.example.weatherapp.ui.search
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,13 +27,13 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.weatherapp.data.network.model.CityWeather
-import com.example.weatherapp.utils.getFakeCityWeather
+import com.example.weatherapp.ui.model.CityWeatherViewData
+import com.example.weatherapp.utils.getFakeCityWeatherViewData
 
 @Composable
-fun SearchScreen(cities: SnapshotStateList<CityWeather>, onSearch: (String) -> Unit) {
+fun SearchScreen(cities: SnapshotStateList<CityWeatherViewData>, onSearch: (String) -> Unit) {
     val selectedCity = remember {
-        mutableStateOf<CityWeather?>(null)
+        mutableStateOf<CityWeatherViewData?>(null)
     }
     if (selectedCity.value != null) {
         CityWeatherDialog(selectedCity.value) {
@@ -93,7 +93,7 @@ fun SearchScreen(cities: SnapshotStateList<CityWeather>, onSearch: (String) -> U
 @Composable
 fun PreviewSearchScreen() {
     val cities = remember {
-        mutableStateListOf(getFakeCityWeather())
+        mutableStateListOf(getFakeCityWeatherViewData())
     }
     SearchScreen(cities) {}
 }
