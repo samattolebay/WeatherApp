@@ -11,11 +11,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.weatherapp.data.network.model.*
-import com.example.weatherapp.ui.theme.BigTextStyle
-import com.example.weatherapp.ui.theme.MediumTextStyle
+import com.example.weatherapp.ui.theme.ExtraBigTextStyle
+import com.example.weatherapp.ui.theme.ExtraMediumTextStyle
 import com.example.weatherapp.ui.theme.SmallTextStyle
 import com.example.weatherapp.R
 import com.example.weatherapp.ui.theme.DefaultTextStyle
+import com.example.weatherapp.utils.getFakeCityWeather
 
 @Composable
 fun HomeScreen(cityWeather: CityWeather?) {
@@ -29,17 +30,17 @@ fun HomeScreen(cityWeather: CityWeather?) {
                 .fillMaxWidth()
                 .height(50.dp)
         )
-        Text(text = cityWeather.name, style = MediumTextStyle, maxLines = 1)
+        Text(text = cityWeather.name, style = ExtraMediumTextStyle, maxLines = 1)
         Spacer(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(12.dp)
         )
-        Text(text = cityWeather.weather[0].main, style = MediumTextStyle)
+        Text(text = cityWeather.weather[0].main, style = ExtraMediumTextStyle)
         Text(text = cityWeather.weather[0].description, style = SmallTextStyle)
         Text(
             text = stringResource(id = R.string.temperature, cityWeather.main.temp.toInt()),
-            style = BigTextStyle
+            style = ExtraBigTextStyle
         )
         Spacer(modifier = Modifier.weight(1f))
         Row(modifier = Modifier.fillMaxWidth()) {
@@ -101,23 +102,5 @@ fun HomeScreen(cityWeather: CityWeather?) {
 @Preview
 @Composable
 fun PreviewHomeScreen() {
-    HomeScreen(
-        CityWeather(
-            coord = Coordinate(lon = 76.95, lat = 43.25),
-            weather = arrayOf(
-                Weather(
-                    id = 803,
-                    cityName = "null",
-                    main = "Clouds",
-                    description = "nublado",
-                    icon = "04"
-                )
-            ),
-            sys = Sys(country = "KZ"),
-            main = Main(temp = -3.05f, feelsLike = 0.0f, humidity = 80),
-            wind = Wind(speed = 1.0f),
-            name = "Almaty",
-            photoReference = null
-        )
-    )
+    HomeScreen(getFakeCityWeather())
 }

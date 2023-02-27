@@ -1,7 +1,6 @@
 package com.example.weatherapp.ui.theme
 
 import androidx.compose.material.Typography
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -29,6 +28,7 @@ val Typography = Typography(
 )
 
 val DefaultTextStyle = TextStyle(color = PrimaryTextColor)
-val BigTextStyle = DefaultTextStyle.copy(fontSize = 52.sp, fontWeight = FontWeight.Medium)
-val MediumTextStyle = DefaultTextStyle.copy(fontSize = 28.sp)
+val ExtraBigTextStyle = DefaultTextStyle.copy(fontSize = 52.sp, fontWeight = FontWeight.Medium)
+val ExtraMediumTextStyle = DefaultTextStyle.copy(fontSize = 28.sp)
+val MediumTextStyle = DefaultTextStyle.copy(fontSize = 20.sp)
 val SmallTextStyle = DefaultTextStyle.copy(fontSize = 18.sp)

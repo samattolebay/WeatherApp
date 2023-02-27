@@ -10,3 +10,5 @@ val PrimaryTextColor = Color.White
 val BackgroundColor = Color(0xFF18191D)
 val BottomBarBackgroundColor = Color(0xFF2C2F42)
 val BottomBarContentColor = Color(0xFF27DEF2)
+val CardBackgroundColor = Color(0xFF231F20)
+val CardBorderColor = Color(0xFF27DEF2)
