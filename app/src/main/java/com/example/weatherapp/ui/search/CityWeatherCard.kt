@@ -1,4 +1,4 @@
-package com.example.weatherapp.ui
+package com.example.weatherapp.ui.search
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -13,12 +13,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.weatherapp.R
-import com.example.weatherapp.data.network.model.CityWeather
+import com.example.weatherapp.ui.model.CityWeatherViewData
 import com.example.weatherapp.ui.theme.*
-import com.example.weatherapp.utils.getFakeCityWeather
+import com.example.weatherapp.utils.getFakeCityWeatherViewData
 
 @Composable
-fun CityWeatherCard(cityWeather: CityWeather, onClick: () -> Unit) {
+fun CityWeatherCard(cityWeather: CityWeatherViewData, onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .clickable(onClick = onClick)
@@ -56,5 +56,5 @@ fun CityWeatherCard(cityWeather: CityWeather, onClick: () -> Unit) {
 @Preview
 @Composable
 fun PreviewCityWeatherCard() {
-    CityWeatherCard(cityWeather = getFakeCityWeather()) {}
+    CityWeatherCard(cityWeather = getFakeCityWeatherViewData()) {}
 }

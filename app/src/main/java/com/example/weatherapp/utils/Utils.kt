@@ -1,13 +1,13 @@
 package com.example.weatherapp.utils
 
 import com.example.weatherapp.data.network.model.*
+import com.example.weatherapp.ui.model.CityWeatherViewData
 
-fun getFakeCityWeather() = CityWeather(
+fun getFakeCityWeatherViewData() = CityWeatherViewData(
     coord = Coordinate(lon = 76.95, lat = 43.25),
     weather = arrayOf(
         Weather(
             id = 803,
-            cityName = "null",
             main = "Clouds",
             description = "nublado",
             icon = "04"
@@ -17,5 +17,24 @@ fun getFakeCityWeather() = CityWeather(
     main = Main(temp = -3.05f, feelsLike = 0.0f, humidity = 80),
     wind = Wind(speed = 1.0f),
     name = "Almaty",
-    photoReference = null
+    forecast = arrayOf(
+        DayWeather(
+            Weather(
+                id = 803,
+                main = "Clouds",
+                description = "nublado",
+                icon = "04"
+            ),
+            Temp(day = -3.05f)
+        ),
+        DayWeather(
+            Weather(
+                id = 803,
+                main = "Clouds",
+                description = "nublado",
+                icon = "04"
+            ),
+            Temp(day = -3.05f)
+        )
+    )
 )

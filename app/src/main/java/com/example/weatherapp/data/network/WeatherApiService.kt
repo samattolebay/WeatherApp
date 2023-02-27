@@ -1,6 +1,7 @@
 package com.example.weatherapp.data.network
 
 import com.example.weatherapp.data.network.model.CityWeather
+import com.example.weatherapp.data.network.model.CityWeatherForecast
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,6 +27,16 @@ interface WeatherApiService {
         @Query("lang") lang: String = LANG
     ): Response<CityWeather>
 
+    @GET("forecast/daily")
+    suspend fun fetchCityWeatherForecastByPoint(
+        @Query("lat") lat: String,
+        @Query("lon") lon: String,
+        @Query("cnt") cnt: Int = CNT,
+        @Query("units") units: String = UNITS,
+        @Query("appid") appid: String = API_KEY,
+        @Query("lang") lang: String = LANG
+    ): Response<CityWeatherForecast>
+
     companion object {
         val service: WeatherApiService by lazy {
             val retrofit = Retrofit.Builder()
@@ -40,5 +51,6 @@ interface WeatherApiService {
         private const val API_KEY = "112453030adaf6d894182b7c8fa42e6e"
         private const val UNITS = "metric"
         private const val LANG = "pt_br"
+        private const val CNT = 3
     }
 }

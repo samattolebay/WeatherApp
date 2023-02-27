@@ -16,7 +16,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.weatherapp.data.network.model.CityWeather
+import com.example.weatherapp.ui.home.HomeScreen
+import com.example.weatherapp.ui.model.CityWeatherViewData
+import com.example.weatherapp.ui.search.SearchScreen
 import com.example.weatherapp.ui.theme.BottomBarBackgroundColor
 import com.example.weatherapp.ui.theme.BottomBarContentColor
 import com.example.weatherapp.ui.theme.BottomBarShape
@@ -24,8 +26,8 @@ import com.example.weatherapp.ui.theme.BottomBarShape
 @Composable
 fun WeatherApp(
     navController: NavHostController,
-    cityWeather: State<CityWeather?>,
-    cities: SnapshotStateList<CityWeather>,
+    cityWeather: State<CityWeatherViewData?>,
+    cities: SnapshotStateList<CityWeatherViewData>,
     onSearch: (String) -> Unit
 ) {
     val items = listOf(
