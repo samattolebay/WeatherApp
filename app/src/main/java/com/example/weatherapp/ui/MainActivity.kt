@@ -18,9 +18,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherAppTheme {
+                viewModel.fetchHomeCityWeather("Astana")
                 viewModel.fetchCityWeather("Almaty")
                 val navController = rememberNavController()
-                WeatherApp(navController, viewModel.city.observeAsState())
+                WeatherApp(navController, viewModel.homeCity.observeAsState(), viewModel.cities) {
+                    viewModel.fetchCityWeather(it)
+                }
             }
         }
     }

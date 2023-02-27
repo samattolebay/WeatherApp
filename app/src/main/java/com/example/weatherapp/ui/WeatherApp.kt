@@ -6,6 +6,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
@@ -21,7 +22,12 @@ import com.example.weatherapp.ui.theme.BottomBarContentColor
 import com.example.weatherapp.ui.theme.BottomBarShape
 
 @Composable
-fun WeatherApp(navController: NavHostController, cityWeather: State<CityWeather?>) {
+fun WeatherApp(
+    navController: NavHostController,
+    cityWeather: State<CityWeather?>,
+    cities: SnapshotStateList<CityWeather>,
+    onSearch: (String) -> Unit
+) {
     val items = listOf(
         Screen.Home,
         Screen.Search,
@@ -74,7 +80,7 @@ fun WeatherApp(navController: NavHostController, cityWeather: State<CityWeather?
             Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) { HomeScreen(cityWeather.value) }
-            composable(Screen.Search.route) { SearchScreen() }
+            composable(Screen.Search.route) { SearchScreen(cities, onSearch) }
         }
     }
 }
