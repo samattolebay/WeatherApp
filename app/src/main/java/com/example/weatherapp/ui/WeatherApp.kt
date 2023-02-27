@@ -72,7 +72,7 @@ fun WeatherApp(navController: NavHostController, cityWeather: State<CityWeather?
             startDestination = Screen.Home.route,
             Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route) { HomeScreen() }
+            composable(Screen.Home.route) { HomeScreen(cityWeather.value) }
             composable(Screen.Search.route) { SearchScreen() }
         }
     }
