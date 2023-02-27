@@ -26,3 +26,9 @@ val Typography = Typography(
     )
     */
 )
+
+val DefaultTextStyle = TextStyle(color = PrimaryTextColor)
+val ExtraBigTextStyle = DefaultTextStyle.copy(fontSize = 52.sp, fontWeight = FontWeight.Medium)
+val ExtraMediumTextStyle = DefaultTextStyle.copy(fontSize = 28.sp)
+val MediumTextStyle = DefaultTextStyle.copy(fontSize = 20.sp)
+val SmallTextStyle = DefaultTextStyle.copy(fontSize = 18.sp)
