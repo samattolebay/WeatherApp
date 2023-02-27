@@ -1,6 +1,7 @@
-package com.example.weatherapp.data.network
+package com.example.weatherapp.data
 
 import android.util.Log
+import com.example.weatherapp.data.network.WeatherApiService
 import com.example.weatherapp.data.network.model.CityWeather
 import com.example.weatherapp.utils.ResultOf
 import kotlinx.coroutines.CoroutineDispatcher

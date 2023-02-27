@@ -3,7 +3,7 @@ package com.example.weatherapp.ui
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.*
-import com.example.weatherapp.data.network.MainRepository
+import com.example.weatherapp.data.MainRepository
 import com.example.weatherapp.data.network.model.CityWeather
 import com.example.weatherapp.utils.ResultOf
 import kotlinx.coroutines.launch

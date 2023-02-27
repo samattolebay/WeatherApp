@@ -1,8 +1,8 @@
 package com.example.weatherapp
 
 import android.app.Application
-import com.example.weatherapp.data.network.MainRepository
-import com.example.weatherapp.data.network.MainRepositoryImpl
+import com.example.weatherapp.data.MainRepository
+import com.example.weatherapp.data.MainRepositoryImpl
 import com.example.weatherapp.data.network.WeatherApiService
 import kotlinx.coroutines.Dispatchers
 
