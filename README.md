@@ -12,6 +12,6 @@ The Weather App project is an Android application that allows users to view and 
 - Gson
 
 ## Screenshots
-| Home Screen | Search Screen | Search Screen Info |
-| --- | --- | --- |
+| Home Screen                                                                                                                                               | Search Screen                                                                                                                                               | Search Screen Info                                                                                                                                               |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <img src="https://github.com/samattolebay/WeatherApp/blob/7d72ce33139b7f82842c9c8ebcf76fb332175843/screenshots/Home_Screen.png" width="150" height="280"> | <img src="https://github.com/samattolebay/WeatherApp/blob/7d72ce33139b7f82842c9c8ebcf76fb332175843/screenshots/Search_Screen.png" width="150" height="280"> | <img src="https://github.com/samattolebay/WeatherApp/blob/7d72ce33139b7f82842c9c8ebcf76fb332175843/screenshots/Search_Screen_Info.png" width="150" height="280"> |
