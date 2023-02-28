@@ -43,8 +43,6 @@ class MainViewModel(
                         responseCity.coord.lon.toString()
                     )
 
-                    Log.d("MainViewModel", "${cityWeatherForecastResponse.message} and ${cityWeatherForecastResponse.data}")
-
                     val data = when (cityWeatherForecastResponse) {
                         is ResultOf.Success -> {
                             val forecasts = cityWeatherForecastResponse.data ?: return@launch

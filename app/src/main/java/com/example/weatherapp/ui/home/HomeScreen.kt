@@ -3,8 +3,6 @@ package com.example.weatherapp.ui.home
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -97,10 +95,18 @@ fun HomeScreen(cityWeather: CityWeatherViewData?, fillSize: Boolean = true) {
                 Text(text = stringResource(id = R.string.wind_text), style = DefaultTextStyle)
             }
         }
-        Text(text = stringResource(id = R.string.forecast), style = MediumTextStyle)
-        LazyRow(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-            items(cityWeather.forecast) {
-                MiniDayForecast(it)
+        Spacer(modifier = Modifier
+            .fillMaxWidth()
+            .height(16.dp))
+        if (cityWeather.forecast.isNotEmpty()) {
+            Text(text = stringResource(id = R.string.forecast), style = MediumTextStyle)
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                cityWeather.forecast.forEach {
+                    MiniDayForecast(weather = it, Modifier.weight(1f))
+                }
             }
         }
         Spacer(

@@ -19,20 +19,24 @@ fun getFakeCityWeatherViewData() = CityWeatherViewData(
     name = "Almaty",
     forecast = arrayOf(
         DayWeather(
-            Weather(
-                id = 803,
-                main = "Clouds",
-                description = "nublado",
-                icon = "04"
+            arrayOf(
+                Weather(
+                    id = 803,
+                    main = "Clouds",
+                    description = "nublado",
+                    icon = "04"
+                )
             ),
             Temp(day = -3.05f)
         ),
         DayWeather(
-            Weather(
-                id = 803,
-                main = "Clouds",
-                description = "nublado",
-                icon = "04"
+            arrayOf(
+                Weather(
+                    id = 803,
+                    main = "Clouds",
+                    description = "nublado",
+                    icon = "04"
+                )
             ),
             Temp(day = -3.05f)
         )

@@ -48,7 +48,7 @@ interface WeatherApiService {
         }
 
         private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-        private const val API_KEY = "112453030adaf6d894182b7c8fa42e6e"
+        private const val API_KEY = "8fae5076fce4b9ab57b9f8ed4f7eaf67"
         private const val UNITS = "metric"
         private const val LANG = "pt_br"
         private const val CNT = 3
